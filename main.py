@@ -56,8 +56,10 @@ def drop_apple(appleToDrop):
     appleToDrop.sety(appleToDrop.ycor() - 10)
     wn.ontimer(drop_apple(appleToDrop), 100)
   else:
-    reset_apple(appleToDrop)
+    appleToDrop.clear()
+    appleToDrop.hideturtle()
 
+'''
 def reset_apple(appleToReset):
   global wn
   global keysAvailable
@@ -78,7 +80,7 @@ def reset_apple(appleToReset):
   appleToReset.write(keyToPress, font = ("Arial", 50, "bold"))
   appleToReset.penup()
   wn.tracer = True
-
+'''
 
 
 
@@ -87,6 +89,6 @@ for i in range(5):
   draw_apple(applesToUse[i])
 wn.bgpic("background.gif")
 for n in keysBeingUsed:
-    wn.onkeypress(lambda n=n: start_drop(n), str(n))
+  wn.onkeypress(lambda n=n: start_drop(n), str(n))
 wn.listen()
 wn.mainloop()
